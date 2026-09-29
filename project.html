@@ -79,6 +79,36 @@
 
       main {
         margin-top: 50px;
+        display: flex; /* las secciones van en fila */
+        flex-wrap: wrap; /* si no caben, salto de fila */
+        gap: 24px;
+      }
+
+      main > section {
+        flex: 1 0 100%; /* la sección (sin clase) ocupa su fila completa */
+      }
+
+      main > article:not([class]) {
+        flex: 1 0 100%; /* projects sin clase: cada uno en su propia fila */
+      }
+
+      main > h6 {
+        flex: 1 0 100%; /* "More projects" en su propia fila, nunca con las cards */
+        margin: 0; /* quito los márgenes por defecto del navegador */
+      }
+
+      main > article[class] {
+        flex: 1; /* artículos CON clase: juntos en una sola fila */
+        min-width: 0;
+        margin-top: 0; /* pegadas a "More projects": el espacio lo marca el gap */
+        flex-direction: column; /* dentro de la fila: texto arriba, imagen abajo */
+      }
+
+      main > article[class] img {
+        max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
+        height: auto;
+        aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
+        object-fit: cover; /* se recorta por los lados en vez de deformarse */
       }
 
       /* =============================== */
@@ -96,6 +126,11 @@
       /* LÍNEAS DE COLOR */
       /* =============================== */
 
+      .art-0 {
+        border-top: 3px solid #000000;
+        padding-top: 24px;
+        margin-bottom: 0; /* pegado a "More projects": el espacio lo marca el gap */
+      }
       .art-1 {
         border-top: 3px solid #0034ad;
         padding-top: 24px;
@@ -129,6 +164,44 @@
         display: flex;
         justify-content: flex-end;
         margin-left: auto;
+      }
+
+      /* project 1: imagen centrada con su pie debajo */
+      .image-body {
+        display: flex;
+        flex-direction: column; /* imagen arriba, pie de imagen debajo */
+        align-items: center; /* imagen centrada */
+        gap: 12px;
+        margin: 0 auto; /* el bloque de project 1 centrado en su fila */
+      }
+
+      .image-body img {
+        max-width: 100%; /* la imagen nunca desborda su fila */
+        height: auto;
+      }
+
+      .image-body h6 {
+        width: 100%; /* el pie ocupa el ancho del bloque: sin esto, la caja del h6
+                        se encoge al tamaño exacto del texto y text-align no hace nada */
+        text-align: center; /* el pie de imagen va centrado (lo pisa el style inline) */
+      }
+      .image-body2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-left: 0;
+      }
+      .image-body3 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-left: auto; /* el bloque de project 3, pegado a la derecha */
+        margin-right: 0;
+      }
+      .image-body2 h6 {
+        text-align: left; /* el pie de imagen va centrado */
       }
 
       /* =============================== */
@@ -178,47 +251,92 @@
     </header>
 
     <main>
-      <section>
-        <h1>
-          I'm Sarah Chen, design student and explorer of visual languages. I'm
-          passionate about understanding how different design disciplines
-          intersect and create meaningful connections.
-        </h1>
-      </section>
-
-      <article class="art-1">
+      <article>
         <div class="article__text">
-          <a href="./experience.html" style="color: #0034ad">
-            <h6>Design</h6>
+          <a href="./experience.html" style="color: #5f00ad">
+            <h6>Photography</h6>
           </a>
-
-          <h2 style="color: #0034ad">Yoga Studio rebrand</h2>
-
-          <button
-            onclick="window.location.href = './experience.html'"
-            style="color: #0034ad"
-          >
-            Explore
-          </button>
-        </div>
-
-        <div class="image-container">
-          <img
-            src="./assets/Image-1.png"
-            alt="Imagen de experiencia 1"
-            width="300"
-            height="300"
-          />
+          <h2 style="color: #5f00ad">Echoes of Italy</h2>
+          <h1>
+            'Echoes of Italy' is my lens on the country’s timeless charm —
+            candid moments, architectural details, and sun-kissed scenes.
+          </h1>
         </div>
       </article>
-
+      <article>
+        <div class="image-body">
+          <img
+            src="./assets/project-1.jpg"
+            alt="Imagen de experiencia 1"
+            width="400"
+            height="600"
+          />
+          <h6>Wandering and wondering, lost in the rhythm of the city.</h6>
+        </div>
+      </article>
+      <article>
+        <div class="image-body2">
+          <img
+            src="./assets/project-2.jpg"
+            alt="Imagen de experiencia 2"
+            width="600"
+            height="400"
+          />
+          <h6>A symphony of motion and architecture, framed by history.</h6>
+        </div>
+      </article>
+            <article>
+        <div class="image-body3">
+          <img
+            src="./assets/project-3.jpg"
+            alt="Imagen de experiencia 1"
+            width="600"
+            height="400"
+          />
+          <h6>A study in contrasts: light, shadow, and the rhythm of the game.</h6>
+        </div>
+      </article>
+      <h1>From sun-drenched piazzas to intimate still-lives, I aimed to capture the soul of the country through light and composition.</h1>
+            <article>
+        <div class="image-body">
+          <img
+            src="./assets/project-4.jpg"
+            alt="Imagen de experiencia 1"
+            width="auto"
+            height="auto"
+          />
+          <h6 style="text-align: left;">Dockside perspective, capturing the soul of the water.</h6>
+        </div>
+      </article>
+              <div class="image-body">
+          <img
+            src="./assets/image-4.jpg"
+            alt="Imagen de experiencia 1"
+            width="50%"
+            height="50%"
+          />
+          <h6 style="text-align: left; width: 50%">
+            Venice, and a moment between two.
+          </h6>
+        </div>
+              <div class="image-body">
+          <img
+            src="./assets/project-5.jpg"
+            alt="Imagen de experiencia 1"
+            width="auto"
+            height="auto"
+          />
+          <h6 style="text-align: left;">A spontaneous rhythm, a shared moment, pure joy.</h6>
+        </div>
+      <h1 class="art-0">From graphic design to interior spaces, see the breadth of my creative explorations.</h1>
+      <h6>More projects</h6>
       <article class="art-2">
         <div class="article__text">
           <a href="./experience.html" style="color: #ab0782">
             <h6>Artwork</h6>
           </a>
 
-          <h2 style="color: #ab0782">Abstract paintings</h2>
+          <h2 style="color: #ab0782">Ilustration sketches</h2>
 
           <button
             onclick="window.location.href = './experience.html'"
@@ -264,32 +382,6 @@
         </div>
       </article>
 
-      <article class="art-4">
-        <div class="article__text">
-          <a href="./experience.html" style="color: #5f00ad">
-            <h6>Photography</h6>
-          </a>
-
-          <h2 style="color: #5f00ad">Echoes of Italy</h2>
-
-          <button
-            onclick="window.location.href = './experience.html'"
-            style="color: #5f00ad"
-          >
-            Explore
-          </button>
-        </div>
-
-        <div class="image-container">
-          <img
-            src="./assets/image-4.jpg"
-            alt="Imagen de experiencia 4"
-            width="300"
-            height="300"
-          />
-        </div>
-      </article>
-
       <article class="art-5">
         <div class="article__text">
           <a href="./experience.html" style="color: #0034ad">
@@ -308,24 +400,13 @@
 
         <div class="image-container">
           <img
-            src="./assets/image-4.jpg"
-            alt="Imagen de experiencia 4"
+            src="./assets/image-5.jpg"
+            alt="Imagen de experiencia 5"
             width="300"
             height="300"
           />
         </div>
       </article>
-
-      <section>
-        <h1>
-          I'm dedicated to crafting meaningful visual experiences through a
-          multidisciplinary design approach.
-        </h1>
-
-        <button onclick="window.location.href = './experience.html'">
-          Discover my skills and passions
-        </button>
-      </section>
     </main>
 
     <footer>
