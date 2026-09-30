@@ -39,6 +39,11 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        flex-wrap: wrap; /* en móvil, la navegación salta a su propia fila */
+      }
+
+      header h3 {
+        margin: 0; /* sin el margen por defecto, el header no se dispara en móvil */
       }
 
       header img {
@@ -48,6 +53,9 @@
 
       .links-header {
         margin-left: auto;
+        display: flex;
+        flex-direction: column; /* móvil: los links, en una sola columna */
+        align-items: flex-end; /* pegados al margen derecho */
       }
 
       /* =============================== */
@@ -68,9 +76,10 @@
 
       .links-footer {
         display: flex;
+        flex-direction: column; /* móvil: los links, en una sola columna */
         align-items: center;
         justify-content: center;
-        gap: 100px;
+        gap: 16px;
       }
 
       /* =============================== */
@@ -127,15 +136,21 @@
 
       .image-container {
         display: flex;
-        justify-content: flex-end;
-        margin-left: auto;
+        justify-content: flex-start; /* móvil: la imagen, debajo del texto */
+        margin-left: 0; /* a la izquierda, alineada con el botón Explore */
       }
 
-      /* =============================== */
-      /* TABLET / DESKTOP */
-      /* =============================== */
+      .image-container img {
+        max-width: 100%; /* en pantallas estrechas, la imagen no desborda */
+        height: auto;
+      }
 
-      @media (min-width: 768px) {
+      /* ============================================= */
+      /* TABLET / DESKTOP — desde 800px                */
+      /* móvil 1-799 · tablet 800-1279 · desktop 1280+ */
+      /* ============================================= */
+
+      @media (min-width: 800px) {
         article {
           flex-direction: row;
           align-items: flex-start;
@@ -149,6 +164,22 @@
 
         .image-container {
           flex-shrink: 0;
+          justify-content: flex-end; /* la imagen vuelve a la derecha */
+          margin-left: auto;
+        }
+
+        header h3 {
+          margin: 1em 0; /* margen por defecto: el header de escritorio no cambia */
+        }
+
+        .links-header {
+          flex-direction: row; /* tablet/escritorio: los links, en fila */
+        }
+
+        .links-footer {
+          flex-direction: row;
+          flex-wrap: wrap; /* tablet/escritorio: los links, en fila */
+          gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
         }
 
         section {

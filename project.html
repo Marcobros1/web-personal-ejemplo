@@ -39,6 +39,11 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        flex-wrap: wrap; /* en móvil, la navegación salta a su propia fila */
+      }
+
+      header h3 {
+        margin: 0; /* sin el margen por defecto, el header no se dispara en móvil */
       }
 
       header img {
@@ -48,6 +53,9 @@
 
       .links-header {
         margin-left: auto;
+        display: flex;
+        flex-direction: column; /* móvil: los links, en una sola columna */
+        align-items: flex-end; /* pegados al margen derecho */
       }
 
       /* =============================== */
@@ -68,9 +76,10 @@
 
       .links-footer {
         display: flex;
+        flex-direction: column; /* móvil: los links, en una sola columna */
         align-items: center;
         justify-content: center;
-        gap: 100px;
+        gap: 16px;
       }
 
       /* =============================== */
@@ -98,7 +107,7 @@
       }
 
       main > article[class] {
-        flex: 1; /* artículos CON clase: juntos en una sola fila */
+        flex: 1 0 100%; /* móvil: cada tarjeta en su propia fila */
         min-width: 0;
         margin-top: 0; /* pegadas a "More projects": el espacio lo marca el gap */
         flex-direction: column; /* dentro de la fila: texto arriba, imagen abajo */
@@ -162,8 +171,8 @@
 
       .image-container {
         display: flex;
-        justify-content: flex-end;
-        margin-left: auto;
+        justify-content: flex-start; /* móvil: la imagen, debajo del texto */
+        margin-left: 0; /* a la izquierda, alineada con el botón Explore */
       }
 
       /* project 1: imagen centrada con su pie debajo */
@@ -175,9 +184,22 @@
         margin: 0 auto; /* el bloque de project 1 centrado en su fila */
       }
 
-      .image-body img {
+      .image-body img,
+      .image-body2 img,
+      .image-body3 img {
         max-width: 100%; /* la imagen nunca desborda su fila */
         height: auto;
+      }
+
+      /* las tres primeras imágenes: crecen con el ancho de la pantalla
+         (en móvil/tablet las limitan el clamp y el max-width de arriba) */
+      .image-body1 img {
+        width: clamp(400px, 45vw, 860px);
+      }
+
+      .image-body2 img,
+      .image-body3 img {
+        width: clamp(600px, 62vw, 1180px);
       }
 
       .image-body h6 {
@@ -204,11 +226,12 @@
         text-align: left; /* el pie de imagen va centrado */
       }
 
-      /* =============================== */
-      /* TABLET / DESKTOP */
-      /* =============================== */
+      /* ============================================= */
+      /* TABLET / DESKTOP — desde 800px                */
+      /* móvil 1-799 · tablet 800-1279 · desktop 1280+ */
+      /* ============================================= */
 
-      @media (min-width: 768px) {
+      @media (min-width: 800px) {
         article {
           flex-direction: row;
           align-items: flex-start;
@@ -222,6 +245,26 @@
 
         .image-container {
           flex-shrink: 0;
+          justify-content: flex-end; /* la imagen vuelve a la derecha */
+          margin-left: auto;
+        }
+
+        main > article[class] {
+          flex: 1; /* tablet/escritorio: las tres tarjetas, en fila */
+        }
+
+        header h3 {
+          margin: 1em 0; /* margen por defecto: el header de escritorio no cambia */
+        }
+
+        .links-header {
+          flex-direction: row; /* tablet/escritorio: los links, en fila */
+        }
+
+        .links-footer {
+          flex-direction: row;
+          flex-wrap: wrap; /* tablet/escritorio: los links, en fila */
+          gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
         }
 
         section {
@@ -264,7 +307,7 @@
         </div>
       </article>
       <article>
-        <div class="image-body">
+        <div class="image-body image-body1">
           <img
             src="./assets/project-1.jpg"
             alt="Imagen de experiencia 1"
