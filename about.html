@@ -164,6 +164,36 @@
         object-fit: cover; /* se recorta por los lados en vez de deformarse */
       }
 
+      /* =============================== */
+      /* TARJETAS — igual que en project */
+      /* =============================== */
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px; /* igual que el main de project */
+      }
+
+      .cards > article {
+        flex: 1 0 100%; /* móvil: cada tarjeta en su propia columna */
+        min-width: 0;
+        margin-top: 0; /* el espacio lo marca el gap */
+        flex-direction: column; /* texto arriba, imagen abajo */
+      }
+
+      .cards > article img {
+        max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
+        height: auto;
+        aspect-ratio: 1 / 1; /* miniaturas cuadradas, como en project */
+        object-fit: cover;
+      }
+
+      @media (min-width: 800px) {
+        .cards > article {
+          flex: 1; /* escritorio: las tres tarjetas, en una sola fila */
+        }
+      }
+
       /* ============================================= */
       /* TABLET / DESKTOP — desde 800px                */
       /* móvil 1-799 · tablet 800-1279 · desktop 1280+ */
@@ -282,83 +312,86 @@
       <a href="./project.html" style="color: #000">
         <h6>More projects</h6>
       </a>
-      <article class="art-2">
-        <div class="article__text">
-          <a href="./experience.html" style="color: #ab0782">
-            <h6>Artwork</h6>
-          </a>
+      <div class="cards">
+        <article class="art-2">
+          <div class="article__text">
+            <a href="./experience.html" style="color: #ab0782">
+              <h6>Artwork</h6>
+            </a>
 
-          <h2 style="color: #ab0782">Ilustration sketches</h2>
+            <h2 style="color: #ab0782">Ilustration sketches</h2>
 
-          <button
-            onclick="window.location.href = './experience.html'"
-            style="color: #ab0782"
-          >
-            Explore
-          </button>
-        </div>
+            <button
+              onclick="window.location.href = './experience.html'"
+              style="color: #ab0782"
+            >
+              Explore
+            </button>
+          </div>
 
-        <div class="image-container">
-          <img
-            src="./assets/image-2.jpg"
-            alt="Imagen de experiencia 2"
-            width="300"
-            height="300"
-          />
-        </div>
-      </article>
+          <div class="image-container">
+            <img
+              src="./assets/image-2.jpg"
+              alt="Imagen de experiencia 2"
+              width="300"
+              height="300"
+            />
+          </div>
+        </article>
 
-      <article class="art-3">
-        <div class="article__text">
-          <a href="./experience.html" style="color: #6e660a">
-            <h6>Design</h6>
-          </a>
+        <article class="art-3">
+          <div class="article__text">
+            <a href="./experience.html" style="color: #6e660a">
+              <h6>Design</h6>
+            </a>
 
-          <h2 style="color: #6e660a">Magazine study</h2>
+            <h2 style="color: #6e660a">Magazine study</h2>
 
-          <button
-            onclick="window.location.href = './experience.html'"
-            style="color: #6e660a"
-          >
-            Explore
-          </button>
-        </div>
+            <button
+              onclick="window.location.href = './experience.html'"
+              style="color: #6e660a"
+            >
+              Explore
+            </button>
+          </div>
 
-        <div class="image-container">
-          <img
-            src="./assets/image-3.jpg"
-            alt="Imagen de experiencia 3"
-            width="300"
-            height="300"
-          />
-        </div>
-      </article>
+          <div class="image-container">
+            <img
+              src="./assets/image-3.jpg"
+              alt="Imagen de experiencia 3"
+              width="300"
+              height="300"
+            />
+          </div>
+        </article>
 
-      <article class="art-5">
-        <div class="article__text">
-          <a href="./experience.html" style="color: #0034ad">
-            <h6>Design</h6>
-          </a>
+        <article class="art-5">
+          <div class="article__text">
+            <a href="./experience.html" style="color: #0034ad">
+              <h6>Design</h6>
+            </a>
 
-          <h2 style="color: #0034ad">Castro Capital branding</h2>
+            <h2 style="color: #0034ad">Castro Capital branding</h2>
 
-          <button
-            onclick="window.location.href = './experience.html'"
-            style="color: #0034ad"
-          >
-            Explore
-          </button>
-        </div>
+            <button
+              onclick="window.location.href = './experience.html'"
+              style="color: #0034ad"
+            >
+              Explore
+            </button>
+          </div>
 
-        <div class="image-container">
-          <img
-            src="./assets/image-5.jpg"
-            alt="Imagen de experiencia 5"
-            width="300"
-            height="300"
-          />
-        </div>
-      </article>
+          <div class="image-container">
+            <img
+              src="./assets/image-5.jpg"
+              alt="Imagen de experiencia 5"
+              width="300"
+              height="300"
+            />
+          </div>
+        </article>
+      </div>
+      <br />
     </main>
 
     <footer class="art-1">
