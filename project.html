@@ -120,6 +120,13 @@
         object-fit: cover; /* se recorta por los lados en vez de deformarse */
       }
 
+      header > img {
+        width: "150"; /* la imagen se ajusta al ancho de su tarjeta */
+        height: "150";
+        aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
+        object-fit: cover; /* se recorta por los lados en vez de deformarse */
+      }
+
       /* =============================== */
       /* ARTÍCULOS */
       /* =============================== */
@@ -452,7 +459,7 @@
       </article>
     </main>
 
-    <footer>
+    <footer class="art-0">
       <nav class="links-footer">
         <a href="./index.html" style="color: #ab0782">
           <h1>Email</h1>

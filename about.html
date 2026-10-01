@@ -105,13 +105,13 @@
       /* LÍNEAS DE COLOR */
       /* =============================== */
 
-      .art-0 {
+      .art-1 {
         border-top: 3px solid #000000;
         padding-top: 24px;
-        margin-bottom: 0; /* pegado a "More projects": el espacio lo marca el gap */
       }
-      .art-1 {
-        border-top: 3px solid #0034ad;
+
+      p.art-1 {
+        border-top: 3px solid #000000;
         padding-top: 24px;
       }
 
@@ -201,6 +201,20 @@
           gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
         }
 
+        .art-1 {
+          flex-direction: row; /* los dos divs, en fila */
+        }
+
+        .art-1 .article__text--right {
+          order: 2; /* "Right now I am..." a la derecha */
+          flex: 1; /* ocupa la mitad */
+        }
+
+        .art-1 .article__text {
+          order: 1; /* los demás párrafos, a la izquierda */
+          flex: 1; /* ocupan la otra mitad */
+        }
+
         section {
           margin-top: 50px;
           margin-bottom: 50px;
@@ -230,48 +244,54 @@
     <main>
       <section>
         <h1>
-          I'm Sarah Chen, design student and explorer of visual languages. I'm
-          passionate about understanding how different design disciplines
-          intersect and create meaningful connections.
+          During my time at Aetheria School of Visual Arts, I had the
+          opportunity to intern at Lumina Creative Studio and The Terraform
+          Interiors Collective. These experiences allowed me to see design in
+          action, collaborating with talented professionals and contributing to
+          real-world projects. I learned invaluable lessons about the creative
+          process, from concept development to final execution. I thrive in
+          collaborative environments, where ideas can bounce and evolve. I love
+          the challenge of taking a concept and translating it into a compelling
+          visual experience. Whether I'm sketching, photographing, or designing,
+          I'm always searching for ways to connect with people on a deeper level
+          through my work.
         </h1>
       </section>
 
-      <article class="art-1">
-        <div class="article__text">
-          <a href="./project.html" style="color: #0034ad">
-            <h6>Design</h6>
-          </a>
-
-          <h2 style="color: #0034ad">Yoga Studio rebrand</h2>
-
-          <button
-            onclick="window.location.href = './project.html'"
-            style="color: #0034ad"
-          >
-            Explore
-          </button>
+      <article>
+        <div class="article__text article__text--right">
+          <p class="art-1">Right now I am...</p>
         </div>
-
-        <div class="image-container">
-          <img
-            src="./assets/Image-1.png"
-            alt="Imagen de experiencia 1"
-            width="300"
-            height="300"
-          />
+        <div class="article__text">
+          <p class="art-1">asdf to: Relationships by Haim</p>
+          <p class="art-1">Dreaming of: Gohar World's dinner parties</p>
+          <p class="art-1">Eating at: Mcdonald's</p>
+          <p class="art-1">Training for: The NYC Marathon</p>
+          <div class="image-container">
+            <img
+              src="./assets/pfp-1.jpg"
+              alt="Imagen de experiencia 2"
+              width="auto"
+              height="auto"
+            />
+          </div>
         </div>
       </article>
 
+      <h1 class="art-1">From graphic design to interior spaces, see the breadth of my creative explorations.</h1>
+      <a href="./project.html" style="color: #000">
+        <h6>More projects</h6>
+      </a>
       <article class="art-2">
         <div class="article__text">
-          <a href="./project.html" style="color: #ab0782">
+          <a href="./experience.html" style="color: #ab0782">
             <h6>Artwork</h6>
           </a>
 
-          <h2 style="color: #ab0782">Abstract paintings</h2>
+          <h2 style="color: #ab0782">Ilustration sketches</h2>
 
           <button
-            onclick="window.location.href = './project.html'"
+            onclick="window.location.href = './experience.html'"
             style="color: #ab0782"
           >
             Explore
@@ -290,14 +310,14 @@
 
       <article class="art-3">
         <div class="article__text">
-          <a href="./project.html" style="color: #6e660a">
+          <a href="./experience.html" style="color: #6e660a">
             <h6>Design</h6>
           </a>
 
           <h2 style="color: #6e660a">Magazine study</h2>
 
           <button
-            onclick="window.location.href = './project.html'"
+            onclick="window.location.href = './experience.html'"
             style="color: #6e660a"
           >
             Explore
@@ -314,42 +334,16 @@
         </div>
       </article>
 
-      <article class="art-4">
-        <div class="article__text">
-          <a href="./project.html" style="color: #5f00ad">
-            <h6>Photography</h6>
-          </a>
-
-          <h2 style="color: #5f00ad">Echoes of Italy</h2>
-
-          <button
-            onclick="window.location.href = './project.html'"
-            style="color: #5f00ad"
-          >
-            Explore
-          </button>
-        </div>
-
-        <div class="image-container">
-          <img
-            src="./assets/image-4.jpg"
-            alt="Imagen de experiencia 4"
-            width="300"
-            height="300"
-          />
-        </div>
-      </article>
-
       <article class="art-5">
         <div class="article__text">
-          <a href="./project.html" style="color: #0034ad">
+          <a href="./experience.html" style="color: #0034ad">
             <h6>Design</h6>
           </a>
 
           <h2 style="color: #0034ad">Castro Capital branding</h2>
 
           <button
-            onclick="window.location.href = './project.html'"
+            onclick="window.location.href = './experience.html'"
             style="color: #0034ad"
           >
             Explore
@@ -365,20 +359,9 @@
           />
         </div>
       </article>
-
-      <section>
-        <h1>
-          I'm dedicated to crafting meaningful visual projects through a
-          multidisciplinary design approach.
-        </h1>
-
-        <button onclick="window.location.href = './project.html'">
-          Discover my skills and passions
-        </button>
-      </section>
     </main>
 
-    <footer>
+    <footer class="art-1">
       <nav class="links-footer">
         <a href="./index.html" style="color: #ab0782">
           <h1>Email</h1>
