@@ -61,12 +61,16 @@ header > img {
 /* BOTONES */
 /* =============================== */
 
-button {
+.button {
+  display: inline-block; /* se comporta como el antiguo <button> */
   background-color: transparent;
   border: 1px solid var(--negro);
   padding: 8px 16px;
   cursor: pointer;
   font-family: inherit;
+  font-size: 13.3333px; /* el tamaño por defecto del antiguo <button> */
+  color: inherit; /* el color lo hereda del padre */
+  text-decoration: none; /* sin subrayado: idéntico al botón original */
 }
 
 /* =============================== */
@@ -124,28 +128,24 @@ article {
   margin-top: 24px;
 }
 
-/* color de los textos de un artículo (título, enlace y botón) */
+/* color de los textos de un artículo (título y enlaces) */
 .article__text--azul a,
-.article__text--azul h2,
-.article__text--azul button {
+.article__text--azul h2 {
   color: var(--azul);
 }
 
 .article__text--magenta a,
-.article__text--magenta h2,
-.article__text--magenta button {
+.article__text--magenta h2 {
   color: var(--magenta);
 }
 
 .article__text--morado a,
-.article__text--morado h2,
-.article__text--morado button {
+.article__text--morado h2 {
   color: var(--morado);
 }
 
 .article__text--oliva a,
-.article__text--oliva h2,
-.article__text--oliva button {
+.article__text--oliva h2 {
   color: var(--oliva);
 }
 
