@@ -109,6 +109,12 @@ header > img {
   gap: 16px;
 }
 
+.footer__links a p,
+footer > p {
+  font-size: 2em; /* lo mismo que medían los antiguos <h1> */
+  margin: 0.67em 0; /* mismo margen que los antiguos <h1> */
+}
+
 /* =============================== */
 /* MAIN */
 /* =============================== */
