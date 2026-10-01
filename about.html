@@ -21,149 +21,9 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="./styles.css" />
+
     <style>
-      /* =============================== */
-      /* TIPOGRAFÍA */
-      /* =============================== */
-
-      * {
-        font-family: "Source Serif 4", serif;
-        font-weight: 300;
-      }
-
-      /* =============================== */
-      /* HEADER */
-      /* =============================== */
-
-      header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap; /* en móvil, la navegación salta a su propia fila */
-      }
-
-      header h3 {
-        margin: 0; /* sin el margen por defecto, el header no se dispara en móvil */
-      }
-
-      header img {
-        height: 48px;
-        width: auto;
-      }
-
-      .links-header {
-        margin-left: auto;
-        display: flex;
-        flex-direction: column; /* móvil: los links, en una sola columna */
-        align-items: flex-end; /* pegados al margen derecho */
-      }
-
-      /* =============================== */
-      /* BOTONES */
-      /* =============================== */
-
-      button {
-        background-color: transparent;
-        border: 1px solid #000;
-        padding: 8px 16px;
-        cursor: pointer;
-        font-family: inherit;
-      }
-
-      /* =============================== */
-      /* FOOTER */
-      /* =============================== */
-
-      .links-footer {
-        display: flex;
-        flex-direction: column; /* móvil: los links, en una sola columna */
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-      }
-
-      /* =============================== */
-      /* MAIN */
-      /* =============================== */
-
-      main {
-        margin-top: 50px;
-      }
-
-      /* =============================== */
-      /* ARTÍCULOS */
-      /* =============================== */
-
-      article {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        margin-top: 24px;
-      }
-
-      /* =============================== */
-      /* LÍNEAS DE COLOR */
-      /* =============================== */
-
-      .art-1 {
-        border-top: 3px solid #000000;
-        padding-top: 24px;
-      }
-
-      p.art-1 {
-        border-top: 3px solid #000000;
-        padding-top: 24px;
-      }
-
-      .art-2 {
-        border-top: 3px solid #ab0782;
-        padding-top: 24px;
-      }
-
-      .art-3 {
-        border-top: 3px solid #6e660a;
-        padding-top: 24px;
-      }
-
-      .art-4 {
-        border-top: 3px solid #5f00ad;
-        padding-top: 24px;
-      }
-
-      .art-5 {
-        border-top: 3px solid #0034ad;
-        padding-top: 24px;
-      }
-
-      /* =============================== */
-      /* IMÁGENES */
-      /* =============================== */
-
-      .image-container {
-        display: flex;
-        justify-content: flex-start; /* móvil: la imagen, debajo del texto */
-        margin-left: 0; /* a la izquierda, alineada con el botón Explore */
-      }
-
-      .image-container img {
-        max-width: 100%; /* en pantallas estrechas, la imagen no desborda */
-        height: auto;
-      }
-
-      main > article[class] img {
-        max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
-        height: auto;
-        aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
-        object-fit: cover; /* se recorta por los lados en vez de deformarse */
-      }
-
-      header > img {
-        width: "150"; /* la imagen se ajusta al ancho de su tarjeta */
-        height: "150";
-        aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
-        object-fit: cover; /* se recorta por los lados en vez de deformarse */
-      }
-
       /* =============================== */
       /* TARJETAS — igual que en project */
       /* =============================== */
@@ -193,63 +53,6 @@
           flex: 1; /* escritorio: las tres tarjetas, en una sola fila */
         }
       }
-
-      /* ============================================= */
-      /* TABLET / DESKTOP — desde 800px                */
-      /* móvil 1-799 · tablet 800-1279 · desktop 1280+ */
-      /* ============================================= */
-
-      @media (min-width: 800px) {
-        article {
-          flex-direction: row;
-          align-items: flex-start;
-          margin-bottom: 50px;
-          margin-top: 50px;
-        }
-
-        .article__text {
-          flex: 1;
-        }
-
-        .image-container {
-          flex-shrink: 0;
-          justify-content: flex-end; /* la imagen vuelve a la derecha */
-          margin-left: auto;
-        }
-
-        header h3 {
-          margin: 1em 0; /* margen por defecto: el header de escritorio no cambia */
-        }
-
-        .links-header {
-          flex-direction: row; /* tablet/escritorio: los links, en fila */
-        }
-
-        .links-footer {
-          flex-direction: row;
-          flex-wrap: wrap; /* tablet/escritorio: los links, en fila */
-          gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
-        }
-
-        .art-1 {
-          flex-direction: row; /* los dos divs, en fila */
-        }
-
-        .art-1 .article__text--right {
-          order: 2; /* "Right now I am..." a la derecha */
-          flex: 1; /* ocupa la mitad */
-        }
-
-        .art-1 .article__text {
-          order: 1; /* los demás párrafos, a la izquierda */
-          flex: 1; /* ocupan la otra mitad */
-        }
-
-        section {
-          margin-top: 50px;
-          margin-bottom: 50px;
-        }
-      }
     </style>
   </head>
 
@@ -264,10 +67,10 @@
 
       <h3>Sarah Chen</h3>
 
-      <nav class="links-header">
-        <a href="./index.html" style="color: #ab0782">Home</a>
-        <a href="./about.html" style="color: #7f750e">About</a>
-        <a href="./contact.html" style="color: #5f00ad">Contact</a>
+      <nav class="header__links">
+        <a href="./index.html" class="link link--magenta">Home</a>
+        <a href="./about.html" class="link link--ocre">About</a>
+        <a href="./contact.html" class="link link--morado">Contact</a>
       </nav>
     </header>
 
@@ -290,13 +93,15 @@
 
       <article>
         <div class="article__text article__text--right">
-          <p class="art-1">Right now I am...</p>
+          <p class="line line--negro">Right now I am...</p>
         </div>
         <div class="article__text">
-          <p class="art-1">asdf to: Relationships by Haim</p>
-          <p class="art-1">Dreaming of: Gohar World's dinner parties</p>
-          <p class="art-1">Eating at: Mcdonald's</p>
-          <p class="art-1">Training for: The NYC Marathon</p>
+          <p class="line line--negro">asdf to: Relationships by Haim</p>
+          <p class="line line--negro">
+            Dreaming of: Gohar World's dinner parties
+          </p>
+          <p class="line line--negro">Eating at: Mcdonald's</p>
+          <p class="line line--negro">Training for: The NYC Marathon</p>
           <div class="image-container">
             <img
               src="./assets/pfp-1.jpg"
@@ -308,23 +113,23 @@
         </div>
       </article>
 
-      <h1 class="art-1">From graphic design to interior spaces, see the breadth of my creative explorations.</h1>
-      <a href="./project.html" style="color: #000">
+      <h1 class="line line--negro">
+        From graphic design to interior spaces, see the breadth of my creative
+        explorations.
+      </h1>
+      <a href="./project.html" class="link link--negro">
         <h6>More projects</h6>
       </a>
       <div class="cards">
-        <article class="art-2">
-          <div class="article__text">
-            <a href="./experience.html" style="color: #ab0782">
+        <article class="line line--magenta">
+          <div class="article__text article__text--magenta">
+            <a href="./experience.html">
               <h6>Artwork</h6>
             </a>
 
-            <h2 style="color: #ab0782">Ilustration sketches</h2>
+            <h2>Ilustration sketches</h2>
 
-            <button
-              onclick="window.location.href = './experience.html'"
-              style="color: #ab0782"
-            >
+            <button onclick="window.location.href = './experience.html'">
               Explore
             </button>
           </div>
@@ -339,18 +144,15 @@
           </div>
         </article>
 
-        <article class="art-3">
-          <div class="article__text">
-            <a href="./experience.html" style="color: #6e660a">
+        <article class="line line--oliva">
+          <div class="article__text article__text--oliva">
+            <a href="./experience.html">
               <h6>Design</h6>
             </a>
 
-            <h2 style="color: #6e660a">Magazine study</h2>
+            <h2>Magazine study</h2>
 
-            <button
-              onclick="window.location.href = './experience.html'"
-              style="color: #6e660a"
-            >
+            <button onclick="window.location.href = './experience.html'">
               Explore
             </button>
           </div>
@@ -365,18 +167,15 @@
           </div>
         </article>
 
-        <article class="art-5">
-          <div class="article__text">
-            <a href="./experience.html" style="color: #0034ad">
+        <article class="line line--azul">
+          <div class="article__text article__text--azul">
+            <a href="./experience.html">
               <h6>Design</h6>
             </a>
 
-            <h2 style="color: #0034ad">Castro Capital branding</h2>
+            <h2>Castro Capital branding</h2>
 
-            <button
-              onclick="window.location.href = './experience.html'"
-              style="color: #0034ad"
-            >
+            <button onclick="window.location.href = './experience.html'">
               Explore
             </button>
           </div>
@@ -394,17 +193,17 @@
       <br />
     </main>
 
-    <footer class="art-1">
-      <nav class="links-footer">
-        <a href="./index.html" style="color: #ab0782">
+    <footer class="line line--negro">
+      <nav class="footer__links">
+        <a href="./index.html" class="link link--magenta">
           <h1>Email</h1>
         </a>
 
-        <a href="./about.html" style="color: #5f00ad">
+        <a href="./about.html" class="link link--morado">
           <h1>Behance</h1>
         </a>
 
-        <a href="./contact.html" style="color: #0034ad">
+        <a href="./contact.html" class="link link--azul">
           <h1>Linkedin</h1>
         </a>
       </nav>

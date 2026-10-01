@@ -1,0 +1,244 @@
+/* =========================================================
+   web-personal-ejemplo — styles.css
+   CSS compartido por index.html, about.html y project.html
+   ========================================================= */
+
+/* =============================== */
+/* PALETA                          */
+/* =============================== */
+
+:root {
+  --negro: #000000;
+  --azul: #0034ad;
+  --magenta: #ab0782;
+  --morado: #5f00ad;
+  --oliva: #6e660a;
+  --ocre: #7f750e;
+}
+
+/* =============================== */
+/* TIPOGRAFÍA */
+/* =============================== */
+
+* {
+  font-family: "Source Serif 4", serif;
+  font-weight: 300;
+}
+
+/* =============================== */
+/* HEADER */
+/* =============================== */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* en móvil, la navegación salta a su propia fila */
+}
+
+header h3 {
+  margin: 0; /* sin el margen por defecto, el header no se dispara en móvil */
+}
+
+header img {
+  height: 48px;
+  width: auto;
+}
+
+header > img {
+  aspect-ratio: 1 / 1; /* la foto de perfil se recorta en cuadrado */
+  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+}
+
+.header__links {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column; /* móvil: los links, en una sola columna */
+  align-items: flex-end; /* pegados al margen derecho */
+}
+
+/* =============================== */
+/* BOTONES */
+/* =============================== */
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--negro);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* =============================== */
+/* ENLACES DE COLOR */
+/* =============================== */
+
+.link--magenta {
+  color: var(--magenta);
+}
+
+.link--ocre {
+  color: var(--ocre);
+}
+
+.link--morado {
+  color: var(--morado);
+}
+
+.link--azul {
+  color: var(--azul);
+}
+
+.link--negro {
+  color: var(--negro);
+}
+
+/* =============================== */
+/* FOOTER */
+/* =============================== */
+
+.footer__links {
+  display: flex;
+  flex-direction: column; /* móvil: los links, en una sola columna */
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* =============================== */
+/* MAIN */
+/* =============================== */
+
+main {
+  margin-top: 50px;
+}
+
+/* =============================== */
+/* ARTÍCULOS */
+/* =============================== */
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* color de los textos de un artículo (título, enlace y botón) */
+.article__text--azul a,
+.article__text--azul h2,
+.article__text--azul button {
+  color: var(--azul);
+}
+
+.article__text--magenta a,
+.article__text--magenta h2,
+.article__text--magenta button {
+  color: var(--magenta);
+}
+
+.article__text--morado a,
+.article__text--morado h2,
+.article__text--morado button {
+  color: var(--morado);
+}
+
+.article__text--oliva a,
+.article__text--oliva h2,
+.article__text--oliva button {
+  color: var(--oliva);
+}
+
+/* =============================== */
+/* LÍNEAS DE COLOR */
+/* =============================== */
+
+.line {
+  border-top: 3px solid; /* el color lo pone el modificador */
+  padding-top: 24px;
+}
+
+.line--negro {
+  border-top-color: var(--negro);
+}
+
+.line--azul {
+  border-top-color: var(--azul);
+}
+
+.line--magenta {
+  border-top-color: var(--magenta);
+}
+
+.line--morado {
+  border-top-color: var(--morado);
+}
+
+.line--oliva {
+  border-top-color: var(--oliva);
+}
+
+/* =============================== */
+/* IMÁGENES */
+/* =============================== */
+
+.image-container {
+  display: flex;
+  justify-content: flex-start; /* móvil: la imagen, debajo del texto */
+  margin-left: 0; /* a la izquierda, alineada con el botón Explore */
+}
+
+.image-container img {
+  max-width: 100%; /* en pantallas estrechas, la imagen no desborda */
+  height: auto;
+}
+
+main > article[class] img {
+  max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
+  height: auto;
+  aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
+  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+}
+
+/* ============================================= */
+/* TABLET / DESKTOP — desde 800px                */
+/* móvil 1-799 · tablet 800-1279 · desktop 1280+ */
+/* ============================================= */
+
+@media (min-width: 800px) {
+  article {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .article__text {
+    flex: 1;
+  }
+
+  .image-container {
+    flex-shrink: 0;
+    justify-content: flex-end; /* la imagen vuelve a la derecha */
+    margin-left: auto;
+  }
+
+  header h3 {
+    margin: 1em 0; /* margen por defecto: el header de escritorio no cambia */
+  }
+
+  .header__links {
+    flex-direction: row; /* tablet/escritorio: los links, en fila */
+  }
+
+  .footer__links {
+    flex-direction: row;
+    flex-wrap: wrap; /* tablet/escritorio: los links, en fila */
+    gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
+  }
+
+  section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
