@@ -248,3 +248,23 @@ main > article[class] img {
     margin-bottom: 50px;
   }
 }
+
+/* ============================================= */
+/* DESKTOP — desde 1280px                        */
+/* ============================================= */
+
+@media (min-width: 1280px) {
+  main {
+    margin-top: 70px; /* más aire en escritorio */
+  }
+
+  section {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  article {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+}
