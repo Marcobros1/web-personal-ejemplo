@@ -64,5 +64,5 @@ Netlify publica automáticamente cada push a `main`.
 
 ## Créditos
 
-- Diseño de referencia: _Web Minimalista_ (Figma).
+- Diseño de referencia: _Web Minimalista_ ([Figma](https://www.figma.com/site/IY7kkE2KpkrPnz7VmArZEh/Minimalist-Design-Student-Portfolio--Community-?node-id=0-1&p=f)).
 - Tipografía: [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) (Google Fonts), de Frank Grießhammer, licencia [SIL Open Font License](https://openfontlicense.org/).
