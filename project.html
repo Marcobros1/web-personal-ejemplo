@@ -112,6 +112,17 @@
         main > article[class] {
           flex: 1; /* tablet/escritorio: las tres tarjetas, en fila */
         }
+
+        /* el ancho manda sobre el bloque y en % del container: los clamp en
+           vw se salían de los 640px, el bloque se llenaba al 100% y las
+           margenes auto de left/right/center se quedaban sin aire */
+        .image-body--narrow {
+          width: 60%;
+        }
+
+        .image-body--wide {
+          width: 80%;
+        }
       }
     </style>
   </head>
@@ -156,8 +167,8 @@
             <img
               src="./assets/project-1.jpg"
               alt="Imagen de experiencia 1"
-              width="400"
-              height="600"
+              width="70%"
+              height="70%"
             />
             <h6>Wandering and wondering, lost in the rhythm of the city.</h6>
           </div>
@@ -167,8 +178,8 @@
             <img
               src="./assets/project-2.jpg"
               alt="Imagen de experiencia 2"
-              width="600"
-              height="400"
+              width="30%"
+              height="30%"
             />
             <h6>A symphony of motion and architecture, framed by history.</h6>
           </div>
