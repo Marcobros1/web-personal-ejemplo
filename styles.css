@@ -35,7 +35,7 @@
   box-sizing: border-box; /* el padding cuenta dentro del ancho (como en web-cv) */
   width: 100%;
   max-width: 43rem; /* limita el ancho de la página, igual que en web-cv */
-  margin: 4rem auto; /* margen vertical + centrado horizontal */
+  margin: 50px auto; /* ritmo móvil (igual que main) + centrado; en desktop sube a 70px */
   padding-inline: 1.5rem; /* aire a los lados */
 }
 
@@ -289,6 +289,11 @@ main > article[class] img {
 
   article {
     margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  .container {
+    margin-top: 70px; /* margen máximo: el de desktop */
     margin-bottom: 70px;
   }
 }
