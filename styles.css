@@ -46,9 +46,7 @@ header img {
 }
 
 header > img {
-  aspect-ratio: 1 / 1; /* la foto de perfil se recorta en cuadrado */
-  object-fit: cover; /* se recorta por los lados en vez de deformarse */
-  object-view-box: inset(15% 8% 50% 20%);
+  object-view-box: inset(15% 8% 50% 20%); /* encuadre de la foto de perfil */
   border-radius: 50%; /* esquinas redondeadas */
 }
 
@@ -194,6 +192,11 @@ article {
 /* =============================== */
 /* IMÁGENES */
 /* =============================== */
+
+.image-crop {
+  aspect-ratio: 1 / 1; /* se recorta en cuadrado */
+  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+}
 
 .image-container {
   display: flex;
