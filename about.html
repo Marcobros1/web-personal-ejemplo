@@ -25,6 +25,14 @@
 
     <style>
       /* =============================== */
+      /*         IMAGEN A EDITAR         */
+      /* =============================== */
+      .header__avatar {
+        aspect-ratio: 1 / 1; /* la foto de perfil se recorta en cuadrado */
+        object-fit: cover; /* se recorta por los lados en vez de deformarse */
+        object-view-box: inset(3% 6% 16% 5%);
+      }
+      /* =============================== */
       /* TARJETAS — igual que en project */
       /* =============================== */
 
@@ -104,6 +112,7 @@
           <p class="line line--negro">Training for: The NYC Marathon</p>
           <div class="image-container">
             <img
+              class="header__avatar"
               src="./assets/pfp-1.jpg"
               alt="Imagen de experiencia 2"
               width="auto"
