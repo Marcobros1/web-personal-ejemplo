@@ -26,6 +26,20 @@
 }
 
 /* =============================== */
+/* MARGENES */
+/* =============================== */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* el padding cuenta dentro del ancho (como en web-cv) */
+  width: 100%;
+  max-width: 43rem; /* limita el ancho de la página, igual que en web-cv */
+  margin: 4rem auto; /* margen vertical + centrado horizontal */
+  padding-inline: 1.5rem; /* aire a los lados */
+}
+
+/* =============================== */
 /* HEADER */
 /* =============================== */
 
