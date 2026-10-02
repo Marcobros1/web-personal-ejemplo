@@ -48,6 +48,7 @@ header img {
 header > img {
   aspect-ratio: 1 / 1; /* la foto de perfil se recorta en cuadrado */
   object-fit: cover; /* se recorta por los lados en vez de deformarse */
+  border-radius: 12px; /* esquinas redondeadas */
 }
 
 .header__links {
@@ -55,6 +56,11 @@ header > img {
   display: flex;
   flex-direction: column; /* móvil: los links, en una sola columna */
   align-items: flex-end; /* pegados al margen derecho */
+  gap: 12px; /* espacio entre Home, About y Contact */
+}
+
+.header__links a {
+  text-decoration: none; /* el menú nunca va subrayado */
 }
 
 /* =============================== */
