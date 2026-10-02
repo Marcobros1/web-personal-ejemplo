@@ -25,6 +25,14 @@
 
     <style>
       /* =============================== */
+      /*         IMAGEN A EDITAR         */
+      /* =============================== */
+      .image-container .image-crop {
+        object-view-box: inset(
+          3% 6% 16% 5%
+        ); /* encuadre: arriba / dcha / abajo / izda */
+      }
+      /* =============================== */
       /* TARJETAS — igual que en project */
       /* =============================== */
 
@@ -59,6 +67,7 @@
   <body>
     <header>
       <img
+        class="image-crop"
         src="./assets/avatar.jpg"
         alt="Foto de perfil de Sarah"
         width="150"
@@ -104,6 +113,7 @@
           <p class="line line--negro">Training for: The NYC Marathon</p>
           <div class="image-container">
             <img
+              class="image-crop"
               src="./assets/pfp-1.jpg"
               alt="Imagen de experiencia 2"
               width="auto"
