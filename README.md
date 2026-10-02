@@ -60,6 +60,8 @@ Comprobado en Chrome DevTools a 375 / 768 / 1440 px.
 
 Netlify publica automáticamente cada push a `main`.
 
+- Web en vivo: [marco-minimal-cv.netlify.app](https://marco-minimal-cv.netlify.app/)
+
 ## Créditos
 
 - Diseño de referencia: _Web Minimalista_ (Figma).
