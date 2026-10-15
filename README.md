@@ -45,7 +45,7 @@ Comprobado en Chrome DevTools a 375 / 768 / 1440 px.
 
 ## Convenciones
 
-- **BEM** para las clases nuevas: `.article__text`, `.line--magenta`, `.link--ocre`, `.footer__links`.
+- **BEM** para las clases: `.project__text`, `.line--negro`, `.link--ocre`, `.footer__links`.
 - **Colores en variables** (`:root`): `--negro`, `--azul`, `--magenta`, `--morado`, `--oliva`, `--ocre`; en las reglas siempre `var(--...)`.
 - **Flexbox** para maquetar, con `flex-direction` siempre explícito.
 - **Sin JavaScript:** la navegación son enlaces `<a>` de verdad.
