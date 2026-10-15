@@ -32,34 +32,34 @@
 .container {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; /* el padding cuenta dentro del ancho (como en web-cv) */
+  box-sizing: border-box; /* el padding cuenta dentro del ancho */
   width: 100%;
-  max-width: 43rem; /* limita el ancho de la página, igual que en web-cv */
-  margin: 50px auto; /* ritmo móvil (igual que main) + centrado; en desktop sube a 70px */
+  max-width: 43rem; /* limita el ancho de la página */
+  margin: 50px auto; /* ritmo móvil + centrado; en desktop sube a 70px */
   padding-inline: 1.5rem; /* aire a los lados */
 }
 
 /* =============================== */
-/* HEADER */
+/* HEADER (bloque)                 */
 /* =============================== */
 
-header {
+.header {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap; /* en móvil, la navegación salta a su propia fila */
 }
 
-header h3 {
+.header__name {
+  font-size: 1.17em; /* lo mismo que medía el antiguo <h3> */
   margin: 0; /* sin el margen por defecto, el header no se dispara en móvil */
 }
 
-header img {
+.header__avatar {
   height: 48px;
   width: auto;
-}
-
-header > img {
+  aspect-ratio: 1 / 1; /* se recorta en cuadrado */
+  object-fit: cover; /* se recorta por los lados en vez de deformarse */
   object-view-box: inset(15% 8% 50% 20%); /* encuadre de la foto de perfil */
   border-radius: 50%; /* esquinas redondeadas */
 }
@@ -77,7 +77,7 @@ header > img {
 }
 
 /* =============================== */
-/* BOTONES */
+/* BOTÓN                           */
 /* =============================== */
 
 .button {
@@ -89,11 +89,11 @@ header > img {
   font-family: inherit;
   font-size: 13.3333px; /* el tamaño por defecto del antiguo <button> */
   color: inherit; /* el color lo hereda del padre */
-  text-decoration: none; /* sin subrayado: idéntico al botón original */
+  text-decoration: none; /* sin subrayado */
 }
 
 /* =============================== */
-/* ENLACES DE COLOR */
+/* ENLACES DE COLOR (modificadores) */
 /* =============================== */
 
 .link--magenta {
@@ -117,8 +117,13 @@ header > img {
 }
 
 /* =============================== */
-/* FOOTER */
+/* FOOTER (bloque)                 */
 /* =============================== */
+
+.footer {
+  border-top: 3px solid var(--negro); /* la línea negra de siempre */
+  padding-top: 24px;
+}
 
 .footer__links {
   display: flex;
@@ -129,53 +134,61 @@ header > img {
 }
 
 .footer__links a p,
-footer > p {
+.footer__copy {
   font-size: 2em; /* lo mismo que medían los antiguos <h1> */
   margin: 0.67em 0; /* mismo margen que los antiguos <h1> */
 }
 
 /* =============================== */
-/* MAIN */
+/* MAIN                            */
 /* =============================== */
 
-main {
+.main {
   margin-top: 50px;
+  padding-bottom: 22px; /* el espacio que antes dejaba el <br /> final */
 }
 
-/* =============================== */
-/* ARTÍCULOS */
-/* =============================== */
-
-article {
+/* el main de project.html: la galería, en fila */
+.main--gallery {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap; /* si no caben, salto de fila */
   gap: 24px;
-  margin-top: 24px;
+  padding-bottom: 46px; /* el espacio que antes dejaba el <br /> final: en flex era su propia fila (24px de gap + 22px de línea) */
 }
 
-/* color de los textos de un artículo (título y enlaces) */
-.article__text--azul a,
-.article__text--azul h2 {
-  color: var(--azul);
+/* cada fila de la galería y cada tarjeta, en su propia línea */
+.main--gallery > .project-intro,
+.main--gallery > .gallery-frame {
+  flex: 1 0 100%;
 }
 
-.article__text--magenta a,
-.article__text--magenta h2 {
-  color: var(--magenta);
+.main--gallery > .project {
+  flex: 1 0 100%; /* móvil: cada tarjeta en su propia fila */
+  min-width: 0;
+  margin-top: 0; /* pegadas a "More projects": el espacio lo marca el gap */
+  flex-direction: column; /* dentro de la fila: texto arriba, imagen abajo */
 }
 
-.article__text--morado a,
-.article__text--morado h2 {
-  color: var(--morado);
-}
-
-.article__text--oliva a,
-.article__text--oliva h2 {
-  color: var(--oliva);
+.main--gallery > .project__more {
+  flex: 1 0 100%; /* "More projects" en su propia fila, nunca con las cards */
+  margin: 0; /* quito los márgenes por defecto */
 }
 
 /* =============================== */
-/* LÍNEAS DE COLOR */
+/* INTRODUCCIÓN (texto grande)     */
+/* =============================== */
+
+.intro__text {
+  font-size: 2em; /* lo mismo que medía el antiguo <h1> */
+  margin: 0.67em 0; /* mismo margen que el antiguo <h1> */
+}
+
+.intro__text--flush {
+  margin-bottom: 0; /* pegado a "More projects": el espacio lo marca el gap */
+}
+
+/* =============================== */
+/* LÍNEAS DE COLOR                 */
 /* =============================== */
 
 .line {
@@ -187,47 +200,216 @@ article {
   border-top-color: var(--negro);
 }
 
-.line--azul {
-  border-top-color: var(--azul);
-}
-
-.line--magenta {
-  border-top-color: var(--magenta);
-}
-
-.line--morado {
-  border-top-color: var(--morado);
-}
-
-.line--oliva {
-  border-top-color: var(--oliva);
-}
-
 /* =============================== */
-/* IMÁGENES */
+/* TARJETAS DE PROYECTO (bloque)   */
 /* =============================== */
 
-.image-crop {
-  aspect-ratio: 1 / 1; /* se recorta en cuadrado */
-  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
 }
 
-.image-container {
+/* el color de los textos (enlaces y título) lo pone el modificador */
+.project__text--azul a,
+.project__text--azul .project__title {
+  color: var(--azul);
+}
+
+.project__text--magenta a,
+.project__text--magenta .project__title {
+  color: var(--magenta);
+}
+
+.project__text--morado a,
+.project__text--morado .project__title {
+  color: var(--morado);
+}
+
+.project__text--oliva a,
+.project__text--oliva .project__title {
+  color: var(--oliva);
+}
+
+/* la línea de color superior la pone también el modificador */
+.project--azul {
+  border-top: 3px solid var(--azul);
+  padding-top: 24px;
+}
+
+.project--magenta {
+  border-top: 3px solid var(--magenta);
+  padding-top: 24px;
+}
+
+.project--morado {
+  border-top: 3px solid var(--morado);
+  padding-top: 24px;
+}
+
+.project--oliva {
+  border-top: 3px solid var(--oliva);
+  padding-top: 24px;
+}
+
+/* categoría, título y botón de cada tarjeta */
+.project__category,
+.project-intro__category,
+.project__more {
+  font-size: 0.67em; /* lo mismo que medían los antiguos <h6> */
+  margin: 2.33em 0; /* mismo margen que los antiguos <h6> */
+}
+
+.project__image-container {
   display: flex;
   justify-content: flex-start; /* móvil: la imagen, debajo del texto */
   margin-left: 0; /* a la izquierda, alineada con el botón Explore */
 }
 
-.image-container img {
-  max-width: 100%; /* en pantallas estrechas, la imagen no desborda */
+.project__image {
+  max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
+  height: auto;
+  aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas */
+  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+}
+
+/* =============================== */
+/* "AHORA MISMO" (about)           */
+/* =============================== */
+
+.now {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.now__portrait {
+  display: flex;
+  justify-content: flex-start; /* móvil: el retrato, dentro de su columna */
+  margin-left: 0;
+}
+
+.now__image {
+  max-width: 100%; /* en pantallas estrechas no desborda */
+  height: auto;
+  aspect-ratio: 1 / 1; /* se recorta en cuadrado */
+  object-fit: cover;
+  object-view-box: inset(3% 6% 16% 5%); /* encuadre: arriba / dcha / abajo / izda */
+}
+
+/* =============================== */
+/* TARJETAS EN FILA (about)        */
+/* =============================== */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* igual que el main de project */
+}
+
+.cards > .project {
+  flex: 1 0 100%; /* móvil: cada tarjeta en su propia fila */
+  min-width: 0;
+  margin-top: 0; /* el espacio lo marca el gap */
+  flex-direction: column; /* texto arriba, imagen abajo */
+}
+
+/* =============================== */
+/* ENCABEZADO DEL PROYECTO (project) */
+/* =============================== */
+
+.project-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.project-intro__text--morado a,
+.project-intro__text--morado .project-intro__title {
+  color: var(--morado);
+}
+
+.project-intro__description {
+  font-size: 2em; /* lo mismo que medía el antiguo <h1> */
+  margin: 0.67em 0; /* mismo margen que el antiguo <h1> */
+}
+
+/* =============================== */
+/* GALERÍA DEL PROYECTO (project)  */
+/* =============================== */
+
+/* cada fila de la galería (antes un <article> solo para eso) */
+.gallery-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* cada figura de la galería; los modificadores ponen su posición */
+.gallery {
+  display: flex;
+  flex-direction: column; /* imagen arriba, pie de imagen debajo */
+  gap: 12px;
+  margin: 0; /* <figure> trae margen por defecto: aquí no pinto */
+}
+
+.gallery--center {
+  align-items: center; /* imagen centrada */
+  margin-inline: auto; /* la figura centrada en su fila */
+}
+
+.gallery--left,
+.gallery--right {
+  align-items: flex-start;
+}
+
+.gallery--left .gallery__caption {
+  text-align: left;
+}
+
+.gallery--right {
+  margin-left: auto; /* la figura, pegada a la derecha */
+}
+
+.gallery--center .gallery__caption {
+  width: 100%; /* el pie ocupa el ancho de la figura */
+  text-align: center; /* el pie de imagen va centrado */
+}
+
+.gallery--caption-left .gallery__caption {
+  text-align: left; /* ... salvo cuando el diseño lo quiere a la izquierda */
+}
+
+.gallery--caption-narrow .gallery__caption {
+  width: 80%; /* el pie, más estrecho que la imagen */
+}
+
+.gallery__image {
+  max-width: 100%; /* la imagen nunca desborda su fila */
   height: auto;
 }
 
-main > article[class] img {
-  max-width: 100%; /* la imagen se ajusta al ancho de su tarjeta */
-  height: auto;
-  aspect-ratio: 1 / 1; /* todas las miniaturas cuadradas, como la de Ilustration */
-  object-fit: cover; /* se recorta por los lados en vez de deformarse */
+.gallery__image--80 {
+  width: 80%; /* la imagen ocupa el80% de su figura (Venice) */
+}
+
+.gallery__caption {
+  font-size: 0.67em; /* lo mismo que medía el antiguo <h6> */
+  margin: 2.33em 0; /* mismo margen que los antiguos <h6> */
+}
+
+/* las tres primeras imágenes: crecen con el ancho de la pantalla
+   (en móvil/tablet las limitan el clamp y el max-width de arriba) */
+.gallery--narrow .gallery__image {
+  width: clamp(400px, 45vw, 860px);
+}
+
+.gallery--wide .gallery__image {
+  width: clamp(600px, 62vw, 1180px);
 }
 
 /* ============================================= */
@@ -236,24 +418,64 @@ main > article[class] img {
 /* ============================================= */
 
 @media (min-width: 800px) {
-  article {
+  .project {
     flex-direction: row;
     align-items: flex-start;
     margin-bottom: 50px;
     margin-top: 50px;
   }
 
-  .article__text {
+  .cards > .project {
+    flex: 1; /* tablet/escritorio: las tres tarjetas, en una sola fila */
+  }
+
+  .project__text {
     flex: 1;
   }
 
-  .image-container {
+  .project__image-container {
     flex-shrink: 0;
     justify-content: flex-end; /* la imagen vuelve a la derecha */
     margin-left: auto;
   }
 
-  header h3 {
+  .now {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .now__label,
+  .now__list {
+    flex: 1;
+  }
+
+  .now__portrait {
+    flex-shrink: 0;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .project-intro {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .project-intro__text {
+    flex: 1;
+  }
+
+  .gallery-frame {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .header__name {
     margin: 1em 0; /* margen por defecto: el header de escritorio no cambia */
   }
 
@@ -267,9 +489,32 @@ main > article[class] img {
     gap: clamp(20px, 8vw, 100px); /* 100px en escritorio */
   }
 
-  section {
+  .intro {
     margin-top: 50px;
     margin-bottom: 50px;
+  }
+
+  .main--gallery {
+    padding-bottom: 0; /* en tablet/escritorio el <br /> no añadía alto: se sentaba en la fila de tarjetas */
+  }
+
+  .main--gallery > .project {
+    flex: 1; /* tablet/escritorio: las tres tarjetas, en fila */
+  }
+
+  .main--gallery::after {
+    /* el hueco de 24px que ocupaba el <br /> final del diseño original:
+       un elemento de ancho 0 al final de la fila */
+    content: "";
+  }
+
+  /* el ancho manda sobre el bloque y en % del contenedor */
+  .gallery--narrow {
+    width: 60%;
+  }
+
+  .gallery--wide {
+    width: 80%;
   }
 }
 
@@ -278,16 +523,19 @@ main > article[class] img {
 /* ============================================= */
 
 @media (min-width: 1280px) {
-  main {
+  .main {
     margin-top: 70px; /* más aire en escritorio */
   }
 
-  section {
+  .intro {
     margin-top: 70px;
     margin-bottom: 70px;
   }
 
-  article {
+  .project,
+  .project-intro,
+  .now,
+  .gallery-frame {
     margin-top: 70px;
     margin-bottom: 70px;
   }

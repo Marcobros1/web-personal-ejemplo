@@ -7,10 +7,10 @@
 
     <meta
       name="description"
-      content="Página personal de Marco de Miguel Parga: quién soy, experiencia y contacto."
+      content="Portfolio de Sarah Chen: proyectos de diseño, arte y fotografía."
     />
 
-    <title>Marco de Miguel Parga — Página personal</title>
+    <title>Sarah Chen — Portfolio</title>
 
     <!-- Fuente Source Serif 4 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,16 +26,16 @@
 
   <body>
     <div class="container">
-      <header>
+      <header class="header">
         <img
-          class="image-crop"
+          class="header__avatar"
           src="./assets/avatar.jpg"
-          alt="Foto de perfil de Sarah"
+          alt="Foto de perfil de Sarah Chen"
           width="150"
           height="150"
         />
 
-        <h3>Sarah Chen</h3>
+        <p class="header__name">Sarah Chen</p>
 
         <nav class="header__links">
           <a href="./index.html" class="link link--magenta">Home</a>
@@ -46,134 +46,138 @@
         </nav>
       </header>
 
-      <main>
-        <section>
-          <h1>
+      <main class="main">
+        <section class="intro">
+          <p class="intro__text">
             I'm Sarah Chen, design student and explorer of visual languages. I'm
             passionate about understanding how different design disciplines
             intersect and create meaningful connections.
-          </h1>
+          </p>
         </section>
 
-        <article class="line line--azul">
-          <div class="article__text article__text--azul">
+        <article class="project project--azul">
+          <div class="project__text project__text--azul">
             <a href="./project.html">
-              <h6>Design</h6>
+              <p class="project__category">Design</p>
             </a>
 
-            <h2>Yoga Studio rebrand</h2>
+            <h2 class="project__title">Yoga Studio rebrand</h2>
 
             <a href="./project.html" class="button">Explore</a>
           </div>
 
-          <div class="image-container">
+          <div class="project__image-container">
             <img
+              class="project__image"
               src="./assets/Image-1.png"
-              alt="Imagen de experiencia 1"
+              alt="Logotipo del estudio de yoga sobre un atardecer"
               width="300"
               height="300"
             />
           </div>
         </article>
 
-        <article class="line line--magenta">
-          <div class="article__text article__text--magenta">
+        <article class="project project--magenta">
+          <div class="project__text project__text--magenta">
             <a href="./project.html">
-              <h6>Artwork</h6>
+              <p class="project__category">Artwork</p>
             </a>
 
-            <h2>Abstract paintings</h2>
+            <h2 class="project__title">Abstract paintings</h2>
 
             <a href="./project.html" class="button">Explore</a>
           </div>
 
-          <div class="image-container">
+          <div class="project__image-container">
             <img
+              class="project__image"
               src="./assets/image-2.jpg"
-              alt="Imagen de experiencia 2"
+              alt="Pintura abstracta con manchas de color"
               width="300"
               height="300"
             />
           </div>
         </article>
 
-        <article class="line line--oliva">
-          <div class="article__text article__text--oliva">
+        <article class="project project--oliva">
+          <div class="project__text project__text--oliva">
             <a href="./project.html">
-              <h6>Design</h6>
+              <p class="project__category">Design</p>
             </a>
 
-            <h2>Magazine study</h2>
+            <h2 class="project__title">Magazine study</h2>
 
             <a href="./project.html" class="button">Explore</a>
           </div>
 
-          <div class="image-container">
+          <div class="project__image-container">
             <img
+              class="project__image"
               src="./assets/image-3.jpg"
-              alt="Imagen de experiencia 3"
+              alt="Estudio de maquetación de una revista"
               width="300"
               height="300"
             />
           </div>
         </article>
 
-        <article class="line line--morado">
-          <div class="article__text article__text--morado">
+        <article class="project project--morado">
+          <div class="project__text project__text--morado">
             <a href="./project.html">
-              <h6>Photography</h6>
+              <p class="project__category">Photography</p>
             </a>
 
-            <h2>Echoes of Italy</h2>
+            <h2 class="project__title">Echoes of Italy</h2>
 
             <a href="./project.html" class="button">Explore</a>
           </div>
 
-          <div class="image-container">
+          <div class="project__image-container">
             <img
+              class="project__image"
               src="./assets/image-4.jpg"
-              alt="Imagen de experiencia 4"
+              alt="Escena cotidiana de una calle en Italia"
               width="300"
               height="300"
             />
           </div>
         </article>
 
-        <article class="line line--azul">
-          <div class="article__text article__text--azul">
+        <article class="project project--azul">
+          <div class="project__text project__text--azul">
             <a href="./project.html">
-              <h6>Design</h6>
+              <p class="project__category">Design</p>
             </a>
 
-            <h2>Castro Capital branding</h2>
+            <h2 class="project__title">Castro Capital branding</h2>
 
             <a href="./project.html" class="button">Explore</a>
           </div>
 
-          <div class="image-container">
+          <div class="project__image-container">
             <img
+              class="project__image"
               src="./assets/image-5.jpg"
-              alt="Imagen de experiencia 5"
+              alt="Identidad visual de la marca Castro Capital"
               width="300"
               height="300"
             />
           </div>
         </article>
 
-        <section>
-          <h1>
+        <section class="intro">
+          <p class="intro__text">
             I'm dedicated to crafting meaningful visual projects through a
             multidisciplinary design approach.
-          </h1>
+          </p>
 
           <a href="./project.html" class="button">
             Discover my skills and passions
           </a>
         </section>
-        <br />
       </main>
 
-      <footer class="line line--negro">
+      <footer class="footer">
         <nav class="footer__links">
           <a href="mailto:email@ejemplo.com" class="link link--magenta">
             <p>Email</p>
@@ -198,7 +202,7 @@
           </a>
         </nav>
 
-        <p>&copy; Sarah Chen 2025 All Rights Reserved</p>
+        <p class="footer__copy">&copy; Sarah Chen 2025 All Rights Reserved</p>
       </footer>
     </div>
   </body>
