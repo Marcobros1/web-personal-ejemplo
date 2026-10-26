@@ -23,7 +23,7 @@ Abre `index.html` en el navegador, o usa **Live Server** en VS Code para que rec
 ## Estructura
 
 ```
-web-personal-ejemplo/
+Web-Minimalista/
 ├── index.html
 ├── about.html
 ├── project.html
