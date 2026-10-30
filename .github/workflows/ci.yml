@@ -25,3 +25,7 @@
 
             - name: Test
               run: npm test
+            - name: Análisis con SonarQube Cloud
+              uses: SonarSource/sonarqube-scan-action@v8
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
